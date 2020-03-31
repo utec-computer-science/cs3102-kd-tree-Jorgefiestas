@@ -25,9 +25,7 @@ class KDTree {
 
 				T& operator [](size_t);
 				T operator [](size_t) const;
-
 				T operator ==(const Point&) const;
-
 				void print();
 		};
 
@@ -50,7 +48,6 @@ class KDTree {
 			void insert(Iterator, Iterator);
 		template <class Container> 
 			void insert(Container);
-
 
 		bool find(const Point&);
 		template <class Iterator> 
