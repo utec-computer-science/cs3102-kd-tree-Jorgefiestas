@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include "kdtree/kdtree.h"
+#include "kdtree.h"
 
 const int MAX = 100;
 const int N =  20;
@@ -56,6 +57,22 @@ int main() {
 		std::vector<int> p(K);
 		populate_vector(p);
 		assert(find(test, p) == kdtree.find(p));
+	}
+
+	for (int i = 1; i <= 10; i++) {
+		std::vector<int> v(K);
+		populate_vector(v);
+
+		KDTree<int, 2>::Point p(v);
+		KDTree<int, 2>::Point q = kdtree.nearest(p);
+
+		std::cout << "-------Test " << i << "-------" << std::endl;
+		std::cout << "Query Point: ";
+		p.print();
+		std::cout << std::endl << "NN found: ";
+		q.print();
+		std::cout << std::endl;
+		std::cout << "--------------------" << std::endl;
 	}
 
 	kdtree.print();
